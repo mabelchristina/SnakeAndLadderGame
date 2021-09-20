@@ -6,7 +6,8 @@ namespace SnakeAndLadderGame
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("I have Intialized player position = 0");
+            SnakeAndLadder snakeAndLadder = new SnakeAndLadder();
+            snakeAndLadder.Play();
             Console.ReadLine();
         }
     }

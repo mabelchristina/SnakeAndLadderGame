@@ -6,35 +6,40 @@ namespace SnakeAndLadderGame
 {
     class SnakeAndLadder
     {
-        const int NO_PLAY = 0, LADDER = 1, SNAKE = 2;
+        const int NO_PLAY = 0, LADDER = 1, SNAKE = 2, WIN_POSITION = 100;
         int playerposition;
         public void Play()
         {
             Random random = new Random();
             int rollDie = random.Next(1, 7);
             int options = random.Next(0, 3);
-            switch (options)
+            while (playerposition < WIN_POSITION)
             {
-                case NO_PLAY:
-                    Console.WriteLine("NO_PLAY");
+                switch (options)
+                {
+                    case NO_PLAY:
+                        Console.WriteLine("NO_PLAY");
+                        playerposition += 0;
+                        break;
+                    case LADDER:
+                        Console.WriteLine("LADDER");
+                        playerposition += rollDie;
+                        break;
+                    case SNAKE:
+                        Console.WriteLine("SNAKE");
+                        playerposition -= rollDie;
+                        break;
+                    default:
+                        break;
+                }
+                if (playerposition < 0)
+                {
                     playerposition = 0;
+                    Console.WriteLine("player is at zeroth position");
                     break;
-                case LADDER:
-                    Console.WriteLine("LADDER");
-                    playerposition += rollDie;
-                    break;
-                case SNAKE:
-                    Console.WriteLine("SNAKE");
-                    playerposition -= rollDie;
-                    if (playerposition < 0)
-                    {
-                        playerposition = 0;
-                    }
-                    break;
-                default:
-                    break;
+                }
+                Console.WriteLine("Player is at " + playerposition);
             }
-            Console.WriteLine("Player is at " + playerposition);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace SnakeAndLadderGame
     class SnakeAndLadder
     {
         const int NO_PLAY = 0, LADDER = 1, SNAKE = 2, WIN_POSITION = 100;
-        int playerposition = 0;
+        int playerposition = 0, count = 0;
         public void Play()
         {
             Random random = new Random();
@@ -15,6 +15,7 @@ namespace SnakeAndLadderGame
             int options = random.Next(0, 3);
             while (playerposition < WIN_POSITION)
             {
+                count++;
                 switch (options)
                 {
                     case NO_PLAY:
@@ -41,6 +42,11 @@ namespace SnakeAndLadderGame
                 if (playerposition > WIN_POSITION)
                 {
                     playerposition -= rollDie;
+                }
+                if (playerposition == WIN_POSITION)
+                {
+                    Console.WriteLine(count + " no of times die roll");
+                    break;
                 }
                 Console.WriteLine("Player is at " + playerposition);
             }

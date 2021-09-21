@@ -7,7 +7,7 @@ namespace SnakeAndLadderGame
     class SnakeAndLadder
     {
         const int NO_PLAY = 0, LADDER = 1, SNAKE = 2, WIN_POSITION = 100;
-        int playerposition;
+        int playerposition=0;
         public void Play()
         {
             Random random = new Random();

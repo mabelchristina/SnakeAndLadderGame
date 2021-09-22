@@ -7,8 +7,8 @@ namespace SnakeAndLadderGame
     class SnakeAndLadder
     {
         const int NO_PLAY = 0, LADDER = 1, SNAKE = 2, WIN_POSITION = 100;
-        int playerposition = 0, count = 0;
-        public void Play()
+        int count = 0;
+        public int Play(int playerposition)
         {
             Random random = new Random();
             int rollDie = random.Next(1, 7);
@@ -50,6 +50,7 @@ namespace SnakeAndLadderGame
                 }
                 Console.WriteLine("Player is at " + playerposition);
             }
+            return 0;
         }
     }
 }
